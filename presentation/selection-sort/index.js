@@ -43,8 +43,7 @@ require("spectacle/lib/themes/default/index.css");
 const images = {
   allen: require("../../assets/selection-sort/allen.gif"),
   algorithm: require("../../assets/selection-sort/algorithm.gif"),
-  pooh: require("../../assets/selection-sort/pooh-bear-thinking.gif"),
-  mindBlown: require("../../assets/selection-sort/mind-blown.gif")
+  pooh: require("../../assets/selection-sort/pooh-bear-thinking.gif")
 };
 
 preloader(images);
