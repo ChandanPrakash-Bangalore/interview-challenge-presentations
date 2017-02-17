@@ -1,0 +1,8 @@
+function selectionSort(array) {
+  // loop over entirety of array
+    // save current index to a variable
+    // for every index, launch a second loop through remainder of array
+      // if we encounter a smaller number, save that new index to our variable
+    // switch numbers if the index saved to the variable has changed
+  // return the array sorted in-place
+};
