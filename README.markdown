@@ -1,5 +1,5 @@
-## Sorting Algorithms: handsomely-adjustment.surge.sh
-## Selection-Sort Solution: daffy-crook.surge.sh
+## Sorting Algorithms: (https://handsomely-adjustment.surge.sh)
+## Selection-Sort Solution: (https://daffy-crook.surge.sh)
 
 ## Development
 * run `npm start`
