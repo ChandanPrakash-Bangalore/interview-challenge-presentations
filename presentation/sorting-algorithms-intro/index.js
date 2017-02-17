@@ -29,7 +29,7 @@ import preloader from "spectacle/lib/utils/preloader";
 import createTheme from "spectacle/lib/themes/default";
 
 // Import custom component
-import Interactive from "../assets/interactive";
+import Interactive from "../../assets/interactive";
 
 // Require CSS
 require("normalize.css");
@@ -37,10 +37,10 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
-  city: require("../assets/city.jpg"),
-  kat: require("../assets/kat.png"),
-  logo: require("../assets/formidable-logo.svg"),
-  markdown: require("../assets/markdown.png")
+  city: require("../../assets/city.jpg"),
+  kat: require("../../assets/kat.png"),
+  logo: require("../../assets/formidable-logo.svg"),
+  markdown: require("../../assets/markdown.png")
 };
 
 preloader(images);
@@ -62,7 +62,7 @@ export default class Presentation extends React.Component {
               Overview and Problem Solving Techniques
             </Text>
             <p></p>
-            <iframe width="860" height="515" src="https://www.youtube.com/embed/kPRA0W1kECg" frameborder="0" allowfullscreen></iframe>
+            <iframe width="760" height="415" src="https://www.youtube.com/embed/kPRA0W1kECg" frameborder="0" allowfullscreen></iframe>
           </Slide>
           <Slide transition={["fade"]} bgColor="tertiary">
             <Heading size={6} textColor="primary" caps>Topics</Heading>
