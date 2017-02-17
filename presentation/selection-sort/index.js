@@ -43,7 +43,8 @@ require("spectacle/lib/themes/default/index.css");
 const images = {
   allen: require("../../assets/selection-sort/allen.gif"),
   algorithm: require("../../assets/selection-sort/algorithm.gif"),
-  pooh: require("../../assets/selection-sort/pooh-bear-thinking.gif")
+  pooh: require("../../assets/selection-sort/pooh-bear-thinking.gif"),
+  mindBlown: require("../../assets/selection-sort/mind-blown.gif")
 };
 
 preloader(images);
@@ -124,15 +125,44 @@ export default class Presentation extends React.Component {
             lang="js"
             code={require("raw-loader!../../assets/selection-sort/selection-sort.code-explicit")}
             ranges={[
-              { loc: [0, 50], title: "Selection Sort" },
+              { loc: [0, 50], title: "Selection Sort - Explicit" },
               { loc: [1, 2], note: "kick off main loop" },
               { loc: [2, 3], note: "store current index in the variable min" },
               { loc: [3, 4], note: "for every index, loop over remainder of array" },
               { loc: [4, 5], note: "if we find a smaller number" },
-              { loc: [5, 6], note: "reassign our min variable to point to that number's INDEX"},
-              { loc: [3, 8], note: "job of this loop is to find index of smaller number and save it"},
-              { loc: [8, 9], note: "if smaller number exists, its index will be greater than i, our current index"},
-              { loc: [9, 12], note: "so we do the work of switching the numbers"}
+              { loc: [5, 6], note: "reassign our min variable to point to that number's INDEX" },
+              { loc: [3, 8], note: "job of this loop is to find index of smaller number and save it" },
+              { loc: [8, 9], note: "if smaller number exists, its index will be greater than i, our current index" },
+              { loc: [9, 12], note: "so we do the work of switching the numbers" },
+              { loc: [9, 10], note: "save number at current index to a temp variable" },
+              { loc: [10, 11], note: "overwrite number at our current index with number at our target index" },
+              { loc: [11, 12], note: "overwite number at our target index with number saved to our temp variable i.e. the number that used to be at current index" },
+              { loc: [9, 12], note: "purpose of this block is to do work of switching numbers right before i increments as part of next loop iteration" },
+              { loc: [14, 15], note: "finally we return the array sorted in place" }
+            ]}
+          />
+          <Slide transition={["slide", "fade"]} bgColor="tertiary">
+            <CodePane
+              lang="js"
+              source={require("raw-loader!../../assets/selection-sort/selection-sort.code-explicit")}
+              margin="20px auto"
+            />
+          </Slide>
+          <Slide transition={["slide", "fade"]} bgColor="tertiary">
+            <CodePane
+              lang="js"
+              source={require("raw-loader!../../assets/selection-sort/selection-sort.code-concise")}
+              margin="20px auto"
+            />
+          </Slide>
+          <CodeSlide
+            transition={["zoom", "fade"]}
+            lang="js"
+            code={require("raw-loader!../../assets/selection-sort/selection-sort.code-concise")}
+            ranges={[
+              { loc: [0, 50], title: "Selection Sort - Concise" },
+              { loc: [6, 7], note: "es6 magic that allows you to concisely switch values in an array" },
+              { loc: [6, 7], image: images.mindBlown }
             ]}
           />
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
