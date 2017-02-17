@@ -1,24 +1,14 @@
 ## Sorting Algorithms: handsomely-adjustment.surge.sh
 ## Selection-Sort Solution: daffy-crook.surge.sh
 
-## Spectacle Boilerplate
-
-## Reference
-
-The Spectacle core API is available at [https://github.com/FormidableLabs/spectacle/blob/master/README.markdown](https://github.com/FormidableLabs/spectacle/blob/master/README.markdown).
-
 ## Development
+run `npm start`
+navigate to http://localhost:3060
 
-After downloading the boilerplate, your first order of business is to open terminal and run `npm install`
+## First Time Deployment
+run `npm run deploy`
 
-Next, run `rm -R .git` to remove the existing version control.
-
-Then, to start up the local server, run `npm start`
-
-Open a browser and hit [http://localhost:3060](http://localhost:3060), and we are ready to roll
-
-## Build & Deployment
-
-Building the dist version of the project is as easy as running `npm run build`
-
-If you want to deploy the slideshow to surge, run `npm run deploy`
+## Deploy to Same Site
+run `npm run clean`
+run `npm run build`
+run `surge --domain <domain name>`
