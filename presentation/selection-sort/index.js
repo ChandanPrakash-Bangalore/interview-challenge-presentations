@@ -72,7 +72,7 @@ export default class Presentation extends React.Component {
             <Heading size={5} textColor="secondary">Algorithm Breakdown</Heading>
             <Heading size={5} textColor="secondary">Code Review</Heading>
           </Slide>
-          <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary">
+          <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary" notes="blue is iterator in second loop. red is variable saving reference to min index.">
             <Heading size={5} textColor="primary" caps>Selection Sort</Heading>
             <Heading size={6} textColor="secondary" caps>Breaking Down The Algorithm</Heading>
             <Appear>

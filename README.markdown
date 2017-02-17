@@ -1,4 +1,5 @@
-## Sorting Algorithms - handsomely-adjustment.surge.sh
+## Sorting Algorithms: handsomely-adjustment.surge.sh
+## Selection-Sort Solution: daffy-crook.surge.sh
 
 ## Spectacle Boilerplate
 
