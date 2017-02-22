@@ -3,13 +3,13 @@
 ## Permutations: https://shallow-adjustment.surge.sh
 
 ## Development
-* run `npm start`
+* `npm start`
 * navigate to http://localhost:3060
 
 ## First Time Deployment
-* run `npm run deploy`
+* `npm run deploy`
 
 ## Deploy to Same Site
-* run `npm run clean`
-* run `npm run build`
-* run `surge --domain <domain name>`
+* `npm run clean`
+* `npm run build`
+* `surge --domain <domain name>`
