@@ -1,7 +1,7 @@
 ## Sorting Algorithms: https://handsomely-adjustment.surge.sh
 ## Selection-Sort Solution: https://daffy-crook.surge.sh
 ## Permutations: https://shallow-adjustment.surge.sh
-## Power Set Solution: https://half-men.surge.sh
+## Power Set Solution: https://juvenile-egg.surge.sh
 
 ## Development
 * `npm start`
