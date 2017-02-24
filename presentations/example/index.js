@@ -29,7 +29,7 @@ import preloader from "spectacle/lib/utils/preloader";
 import createTheme from "spectacle/lib/themes/default";
 
 // Import custom component
-import Interactive from "../assets/interactive";
+import Interactive from "../assets/example/interactive";
 
 // Require CSS
 require("normalize.css");
@@ -37,10 +37,10 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
-  city: require("../assets/city.jpg"),
-  kat: require("../assets/kat.png"),
-  logo: require("../assets/formidable-logo.svg"),
-  markdown: require("../assets/markdown.png")
+  city: require("../assets/example/city.jpg"),
+  kat: require("../assets/example/kat.png"),
+  logo: require("../assets/example/formidable-logo.svg"),
+  markdown: require("../assets/example/markdown.png")
 };
 
 preloader(images);
@@ -78,7 +78,7 @@ export default class Presentation extends React.Component {
           <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
             <CodePane
               lang="jsx"
-              source={require("raw!../assets/deck.example")}
+              source={require("raw!../assets/example/deck.example")}
               margin="20px auto"
             />
           </Slide>

@@ -1,0 +1,19 @@
+function getPowerSet(str) {
+  const powerSet = [''];
+  const uniqueSortedChar = str
+    .split('')
+    .sort()
+    .filter((letter, i, letters) => {
+      return letters.indexOf(letter) === i
+    });
+
+  const recurse = (subset, chars) => {
+    chars.forEach((char, i) => {
+      powerSet.push(subset+char);
+      recurse(subset+char, chars.slice(i+1));
+    });
+  };
+  
+  recurse('', uniqueSortedChar);
+  return powerSet;
+};
