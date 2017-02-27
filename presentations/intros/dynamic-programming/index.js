@@ -33,17 +33,18 @@ import preloader from "spectacle/lib/utils/preloader";
 import createTheme from "spectacle/lib/themes/default";
 
 // Import custom component
-import Interactive from "../../assets/interactive";
+import Interactive from "../../../assets/example/interactive";
 
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
+require("./styles.css");
 
 
 const images = {
-  allen: require("../../assets/selection-sort/allen.gif"),
-  algorithm: require("../../assets/selection-sort/algorithm.gif"),
-  pooh: require("../../assets/selection-sort/pooh-bear-thinking.gif")
+  russell: require("../../../assets/intros/dynamic-programming/beautiful-mind.gif"),
+  waiting: require("../../../assets/intros/dynamic-programming/waiting.gif"),
+  power: require("../../../assets/intros/dynamic-programming/unlimited-power.gif")
 };
 
 preloader(images);
@@ -59,114 +60,151 @@ export default class Presentation extends React.Component {
         <Deck transition={["zoom", "slide"]} transitionDuration={500}>
           <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-              Selection Sort
+              Dynamic Programming
             </Heading>
             <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-              Breaking It Down
+              An Introduction
             </Text>
-            <Image src={images.allen} margin="0px auto 40px" height="293px"/>
-          </Slide>
-          <Slide transition={["zoom"]} bgColor="primary">
-            <iframe width="760" height="415" src="https://jsperf.com/recursive-vs-dynamic-fibonacci/1" frameborder="0" allowfullscreen></iframe>
+            <Image src={images.russell} margin="0px auto 40px" height="293px"/>
           </Slide>
           <Slide transition={["fade"]} bgColor="tertiary">
-            <Heading size={6} textColor="primary" caps>Game Plan</Heading>
-            <Heading size={5} textColor="secondary">Algorithm Breakdown</Heading>
-            <Heading size={5} textColor="secondary">Code Review</Heading>
+            <Heading size={6} textColor="primary" caps>Topics</Heading>
+            <Heading size={5} textColor="secondary">What Is Dynamic Programming</Heading>
+            <Heading size={5} textColor="secondary">Why Use Dynamic Programming</Heading>
+            <Heading size={5} textColor="secondary">Dynamic Programming Techniques</Heading>
+            <Heading size={5} textColor="secondary">Dynamic Programming Demo</Heading>
           </Slide>
-          <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary" notes="blue is iterator in second loop. red is variable saving reference to min index.">
-            <Heading size={5} textColor="primary" caps>Selection Sort</Heading>
-            <Heading size={6} textColor="secondary" caps>Breaking Down The Algorithm</Heading>
+          <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary">
+            <Heading size={5} textColor="primary" caps>Dynamic Programming</Heading>
+            <Heading size={6} textColor="secondary" caps>What Is It</Heading>
             <Appear>
-              <Image src={images.algorithm} margin="0px auto 0px" height="100px" width="500px"/>
-            </Appear>
-            <Appear>
-             <p>
+            <p>
               <S type="bold">
-                1) Iterate over array. Assume value in current index is smallest. 
-                Save current index to a variable.
+                Method for solving complex problems by breaking them down into a collection of simpler subproblems
               </S>
-             </p>
+            </p>
+            </Appear>
+            <Appear>
+            <p>
+              <S type="bold">
+                Solve each subproblem once and store the solution in a data structure
+              </S>
+            </p>
+            </Appear>
+            <Appear>
+            <p>
+              <S type="bold">
+                Next time the same subproblem occurs, look up the previously computed solution instead of recomputing
+              </S>
+            </p>
             </Appear>
             <Appear>
               <p>
                 <S type="bold">
-                  2) For every index, launch a second loop through remainder of array. 
-                  If find a smaller number, update variable with smaller number's index.
+                  Goal is optimization of time-complexity with a tradeoff in space complexity
+                </S>
+              </p>
+            </Appear>
+          </Slide>
+          <CodeSlide
+            transition={["slide", "fade"]}
+            lang="js"
+            code={require("raw-loader!../../../assets/intros/dynamic-programming/fibonacci.recursive")}
+            ranges={[
+              { loc: [0, 25], title: "Fibonacci - Recursive" },
+              { loc: [1, 2], note: "base case one" },
+              { loc: [2, 3], note: "base case two" },
+              { loc: [3, 4], note: "recursive cases" }
+            ]}
+          />
+          <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary">
+            <Heading size={5} textColor="primary" caps>Dynamic Programming</Heading>
+            <Heading size={6} textColor="secondary" caps>Why Use It</Heading>
+            <Appear>
+              <p>
+                <S type="bold">
+                  Makes an expensive operation much cheaper
                 </S>
               </p>
             </Appear>
             <Appear>
               <p>
                 <S type="bold">
-                  3) Upon reaching end of the array, switch the number in the current index with the number at the index saved to our variable. 
-                  Repeat.
+                  What might traditionally take hours solve can take seconds using a dynamic solution
                 </S>
               </p>
             </Appear>
           </Slide>
-          <Slide transition={["slide", "fade"]} bgColor="tertiary">
-            <CodePane
-              lang="js"
-              source={require("raw-loader!../../assets/selection-sort/selection-sort.code-skeleton")}
-              margin="20px auto"
-            />
-          </Slide>
-          <Slide>
-            <Image src={images.pooh} margin="0px auto 40px" height="293px"/>
-          </Slide>
-          <Slide transition={["slide", "fade"]} bgColor="tertiary">
-            <CodePane
-              lang="js"
-              source={require("raw-loader!../../assets/selection-sort/selection-sort.code-explicit")}
-              margin="20px auto"
-            />
-          </Slide>
           <CodeSlide
-            transition={["zoom", "fade"]}
+            notes="discuss the time complexity of this solution to fibonacci computation"
+            transition={["slide", "fade"]}
             lang="js"
-            code={require("raw-loader!../../assets/selection-sort/selection-sort.code-explicit")}
+            code={require("raw-loader!../../../assets/intros/dynamic-programming/fibonacci.recursive")}
             ranges={[
-              { loc: [0, 50], title: "Selection Sort - Explicit" },
-              { loc: [1, 2], note: "kick off main loop" },
-              { loc: [2, 3], note: "store current index in the variable min" },
-              { loc: [3, 4], note: "for every index, loop over remainder of array" },
-              { loc: [4, 5], note: "if we find a smaller number" },
-              { loc: [5, 6], note: "reassign our min variable to point to that number's INDEX" },
-              { loc: [3, 8], note: "job of this loop is to find index of smaller number and save it" },
-              { loc: [8, 9], note: "if smaller number exists, its index will be greater than i, our current index" },
-              { loc: [9, 12], note: "so we do the work of switching the numbers" },
-              { loc: [9, 10], note: "save number at current index to a temp variable" },
-              { loc: [10, 11], note: "overwrite number at our current index with number at our target index" },
-              { loc: [11, 12], note: "overwite number at our target index with number saved to our temp variable i.e. the number that used to be at current index" },
-              { loc: [9, 12], note: "purpose of this block is to do work of switching numbers right before i increments as part of next loop iteration" },
-              { loc: [14, 15], note: "finally we return the array sorted in place" }
+              { loc: [0, 25], title: "Fibonacci - Recursive" },
+              { loc: [3, 4], note: "for every level we recurse, we add two frames to the call stack" }
             ]}
           />
-          <Slide transition={["slide", "fade"]} bgColor="tertiary">
-            <CodePane
-              lang="js"
-              source={require("raw-loader!../../assets/selection-sort/selection-sort.code-explicit")}
-              margin="20px auto"
-            />
+          <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary">
+            <Heading size={5} textColor="primary" caps>Dynamic Programming</Heading>
+            <Heading size={6} textColor="secondary" caps>Techniques</Heading>
+            <Appear>
+              <List>
+                <ListItem>
+                  <S type="bold">
+                    Top Down (Memoization)
+                  </S>
+                  <List>
+                    <ListItem>
+                      Recurse until you reach base cases
+                    </ListItem>
+                    <ListItem>
+                      Memoize solutions to each level as you recurse
+                    </ListItem>
+                    <ListItem>
+                      Check for memoized solution before recursing
+                    </ListItem>
+                  </List>
+                </ListItem>
+              </List>
+            </Appear>
+            <Appear>
+              <List>
+                <ListItem>
+                  <S type="bold">
+                    Bottom Up
+                  </S>
+                  <List>
+                    <ListItem>
+                      Start with base cases
+                    </ListItem>
+                    <ListItem>
+                      Use base cases to reach first solution
+                    </ListItem>
+                    <ListItem>
+                      Save that solution so far
+                    </ListItem>
+                    <ListItem>
+                      Use it to calculate following solution, repeat until finished
+                    </ListItem>
+                  </List>
+                </ListItem>
+              </List>
+            </Appear>
           </Slide>
-          <Slide transition={["slide", "fade"]} bgColor="tertiary">
-            <CodePane
-              lang="js"
-              source={require("raw-loader!../../assets/selection-sort/selection-sort.code-concise")}
-              margin="20px auto"
-            />
+          <Slide transition={["fade"]} bgColor="primary" textColor="secondary" notes="demo techniques on whiteboard then in next slide use js perf to show efficiency of dynamic techniques">
+            <Heading size={5} textColor="tertiary" caps>Dynamic Programming Demo</Heading>
+            <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
+              Break to whiteboard...
+            </Text>
+            <Image src={images.waiting} margin="40px auto 40px"/>
           </Slide>
-          <CodeSlide
-            transition={["zoom", "fade"]}
-            lang="js"
-            code={require("raw-loader!../../assets/selection-sort/selection-sort.code-concise")}
-            ranges={[
-              { loc: [0, 50], title: "Selection Sort - Concise" },
-              { loc: [6, 7], note: "es6 magic that allows you to concisely switch values in an array" },
-              { loc: [6, 7], image: images.mindBlown }
-            ]}
-          />
+          <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary" notes="CLICK ON THE GIF!">
+            <Heading size={5} textColor="primary" caps>Dynamic Programming Is Powerful</Heading>
+            <Link href="https://jsperf.com/recursive-vs-dynamic-fibonacci/1">
+              <Image src={images.power} margin="40px auto 40px" height="293px"/>
+            </Link>
+          </Slide>
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
             <BlockQuote>
               <Quote>
