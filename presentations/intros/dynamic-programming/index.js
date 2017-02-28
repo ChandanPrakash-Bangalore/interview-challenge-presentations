@@ -69,10 +69,11 @@ export default class Presentation extends React.Component {
           </Slide>
           <Slide transition={["fade"]} bgColor="tertiary">
             <Heading size={6} textColor="primary" caps>Topics</Heading>
-            <Heading size={5} textColor="secondary">What Is Dynamic Programming</Heading>
-            <Heading size={5} textColor="secondary">Why Use Dynamic Programming</Heading>
-            <Heading size={5} textColor="secondary">Dynamic Programming Techniques</Heading>
-            <Heading size={5} textColor="secondary">Dynamic Programming Demo</Heading>
+            <Heading size={5} textColor="secondary">What Is It</Heading>
+            <Heading size={5} textColor="secondary">Why Use It</Heading>
+            <Heading size={5} textColor="secondary">Techniques</Heading>
+            <Heading size={5} textColor="secondary">Demo</Heading>
+            <Heading size={5} textColor="secondary">Limitations</Heading>
           </Slide>
           <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary">
             <Heading size={5} textColor="primary" caps>Dynamic Programming</Heading>
@@ -112,9 +113,8 @@ export default class Presentation extends React.Component {
             code={require("raw-loader!../../../assets/intros/dynamic-programming/fibonacci.recursive")}
             ranges={[
               { loc: [0, 25], title: "Fibonacci - Recursive" },
-              { loc: [1, 2], note: "base case one" },
-              { loc: [2, 3], note: "base case two" },
-              { loc: [3, 4], note: "recursive cases" }
+              { loc: [1, 2], note: "base cases" },
+              { loc: [4, 5], note: "recursive cases" }
             ]}
           />
           <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary">
@@ -142,7 +142,7 @@ export default class Presentation extends React.Component {
             code={require("raw-loader!../../../assets/intros/dynamic-programming/fibonacci.recursive")}
             ranges={[
               { loc: [0, 25], title: "Fibonacci - Recursive" },
-              { loc: [3, 4], note: "for every level we recurse, we add two frames to the call stack" }
+              { loc: [4, 5], note: "for every level we recurse, we add two frames to the call stack" }
             ]}
           />
           <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary">
@@ -205,6 +205,37 @@ export default class Presentation extends React.Component {
               <Image src={images.power} margin="40px auto 40px" height="293px"/>
             </Link>
           </Slide>
+          <Slide transition={["fade"]} bgColor="tertiary" textColor="secondary">
+            <Heading size={5} textColor="primary" caps>Dynamic Programming</Heading>
+            <Heading size={6} textColor="secondary" caps>Limitations</Heading>
+            <Appear>
+            <p>
+              <S type="bold">
+                Overhad associated with memoization in the form of additional memory consumption.
+                If memory consumption is an issue, can fix the size of the cache.
+              </S>
+            </p>
+            </Appear>
+            <Appear>
+            <p>
+              <S type="bold">
+                Only works for referentially transparent functions. That is, the output is solely dependent on the input and not external factors.
+              </S>
+            </p>
+            </Appear>
+          </Slide>
+          <CodeSlide
+            transition={["slide", "fade"]}
+            lang="js"
+            code={require("raw-loader!../../../assets/intros/dynamic-programming/referential-transparency.code")}
+            ranges={[
+              { loc: [0, 25], title: "Referential 'Opacity'" },
+              { loc: [6, 7], note: "output: 2" },
+              { loc: [7, 8], note: "increment bar" },
+              { loc: [8, 9], note: "output: 3" },
+              { loc: [6, 9], note: "output influenced by external factors. not solely dependent on the input 1. we used the same input twice but got two different outputs."}
+            ]}
+          />
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
             <BlockQuote>
               <Quote>

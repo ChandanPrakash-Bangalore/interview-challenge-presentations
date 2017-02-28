@@ -1,0 +1,9 @@
+let bar = 1;
+
+function foo(baz) {
+  return baz + bar;
+}
+
+foo(1); // output: 2
+bar++;
+foo(1); // output: 3
