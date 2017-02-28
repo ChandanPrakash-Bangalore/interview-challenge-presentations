@@ -224,13 +224,11 @@ export default class Presentation extends React.Component {
             </p>
             </Appear>
             <Appear>
-    
               <Link href="https://www.sitepoint.com/implementing-memoization-in-javascript/">
                 <S type="bold">
                  <Heading size={5} textColor="primary" caps>Source & Further Reading</Heading>
                 </S>
               </Link>
-      
             </Appear>
           </Slide>
           <CodeSlide
