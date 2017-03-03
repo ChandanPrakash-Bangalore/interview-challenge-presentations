@@ -1,0 +1,12 @@
+board.togglePiece(i,j);
+    
+if (i+1 < n && !board.hasBeenVisited(i+1,j))
+  findPaths(i+1, j);
+if (j+1 < n && !board.hasBeenVisited(i,j+1))
+  findPaths(i, j+1);
+if (i-1 >= 0 && !board.hasBeenVisited(i-1,j)) 
+  findPaths(i-1, j);
+if (j-1 >= 0 && !board.hasBeenVisited(i,j-1))
+  findPaths(i, j-1);
+  
+board.togglePiece(i,j);

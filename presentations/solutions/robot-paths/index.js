@@ -129,18 +129,44 @@ export default class Presentation extends React.Component {
               </p>
             </Appear>
           </Slide>
+          <Slide transition={["slide", "fade"]} bgColor="tertiary">
+            <CodePane
+              lang="js"
+              source={require("raw-loader!../../../assets/solutions/robot-paths/solution-all.code")}
+              margin="20px auto"
+            />
+          </Slide>
           <CodeSlide
             transition={["slide", "fade"]}
             lang="js"
-            code={require("raw-loader!../../../assets/intros/dynamic-programming/fibonacci.recursive")}
+            code={require("raw-loader!../../../assets/solutions/robot-paths/solution.code")}
             ranges={[
-              { loc: [0, 25], title: "Fibonacci - Recursive" },
-              { loc: [1, 2], note: "base cases" },
-              { loc: [4, 5], note: "recursive cases" }
+              { loc: [0, 50], title: "Robot Paths" },
+              { loc: [1, 3], note: "initialize our closure variables" },
+              { loc: [4, 5], note: "create an inner recursive function" },
+              { loc: [5, 9], note: "our base case is that if we reach the end of the board we increment our counter"},
+              { loc: [10, 13], note: "next we have our recursive cases"},
+              { loc: [15, 16], note: "kick off recursion"},
+              { loc: [16, 17], note: "return our solution"}
+            ]}
+          />
+          <CodeSlide
+            transition={["slide", "fade"]}
+            lang="js"
+            code={require("raw-loader!../../../assets/solutions/robot-paths/solution-extract.code")}
+            ranges={[
+              { loc: [0, 50], title: "Robot Paths - Recursive Cases" },
+              { loc: [0, 1], note: "we have to toggle a piece on the board"},
+              { loc: [2, 10], note: "then we have to explore every possible way to traverse the smaller board (toggling a piece reduces number of spaces left to traverse by one)"},
+              { loc: [2, 4], note: "we check to see if moving south by one space does not take us outside of the board and we check to see if we have already visited the space. if neither, we recurse, passing in the next space"},
+              { loc: [4, 6], note: "we repeat this same process moving east"},
+              { loc: [6, 8], note: "moving north"},
+              { loc: [8, 10], note: "and moving south"},
+              { loc: [11, 12], note: "finally when we have exhausted all of our options, we have to untoggle the piece in order to search for the next possible solution"}
             ]}
           />
           <Slide transition={["fade"]} bgColor="primary" textColor="secondary" notes="demo techniques on whiteboard then in next slide use js perf to show efficiency of dynamic techniques">
-            <Heading size={5} textColor="tertiary" caps>Dynamic Programming Demo</Heading>
+            <Heading size={5} textColor="tertiary" caps>Robot Paths Solution</Heading>
             <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
               Break to whiteboard...
             </Text>

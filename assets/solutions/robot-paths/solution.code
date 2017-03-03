@@ -1,0 +1,18 @@
+function robotPaths (n) {
+  let board = makeBoard(n);
+  let count = 0;
+  
+  function findPaths(i,j) {
+    if(i === n-1 && j === n-1) {
+      count++;
+      return;
+    }
+    
+    /*
+    see next slide
+    */
+  }
+  
+  findPaths(0,0);
+  return count;
+}

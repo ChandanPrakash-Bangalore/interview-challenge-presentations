@@ -1,0 +1,27 @@
+function robotPaths (n) {
+  let board = makeBoard(n);
+  let count = 0;
+  
+  function findPaths(i,j) {
+    if(i === n-1 && j === n-1) {
+      count++;
+      return;
+    }
+    
+    board.togglePiece(i,j);
+    
+    if (i+1 < n && !board.hasBeenVisited(i+1,j))
+      findPaths(i+1, j);
+    if (j+1 < n && !board.hasBeenVisited(i,j+1))
+      findPaths(i, j+1);
+    if (i-1 >= 0 && !board.hasBeenVisited(i-1,j)) 
+      findPaths(i-1, j);
+    if (j-1 >= 0 && !board.hasBeenVisited(i,j-1))
+      findPaths(i, j-1);
+      
+    board.togglePiece(i,j);
+  }
+  
+  findPaths(0,0);
+  return count;
+}
