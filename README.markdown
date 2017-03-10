@@ -4,6 +4,7 @@
 ## Power Set Solution: https://juvenile-egg.surge.sh
 ## Dynamic Programming: https://bitter-peace.surge.sh
 ## Roboth Paths Solution: https://economic-apples.surge.sh
+## Queue Stack Solution: https://overconfident-girl.surge.sh
 
 ## Development
 * `npm start`
